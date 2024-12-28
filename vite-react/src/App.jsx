@@ -13,7 +13,7 @@ const RotatingSphere = () => {
 
   return (
     <mesh ref = {meshRef}>
-      <sphereGeometry args={[4, 32, 32]} />
+      <sphereGeometry args={[3, 32, 32]} />
       <meshLambertMaterial color="#468585"  emissive={'blue'}/>
 
       <Sparkles count = {100} scale={2.5} size={6} speed={0.5} color={'orange'} noise={0.5}/>
@@ -25,8 +25,8 @@ const RotatingDonut = () => {
   const meshRef = useRef();
   useFrame(() => {
     if (meshRef.current) {
+      meshRef.current.rotation.z += 0.01;
       meshRef.current.rotation.x += 0.01;
-      meshRef.current.rotation.y += 0.01;
     }
   });
 
