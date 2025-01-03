@@ -14,7 +14,6 @@ const material = new THREE.MeshLambertMaterial({color: '#ffc0cb', emissive: '#ff
 
 const cube = new THREE.Mesh(geometry, material); //contains t2 things which can be passed as the thins we created above
 cube.position.set(0, 2, 0);
-cube.scale.set(2, 2, 2);
 scene.add(cube);
 
 //4. Add lighting
@@ -42,7 +41,7 @@ heart3.position.set(3, 0, 0);
 heart3.scale.set(1, 1, 1);
 scene.add(heart3);
 
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 500; i++) {
     const smallHeart = new THREE.Mesh(heartGeometry, heartMaterial);
     smallHeart.position.set(
         (Math.random() - 0.5) * 20,
@@ -52,18 +51,6 @@ for (let i = 0; i < 20; i++) {
     smallHeart.scale.set(0.2, 0.2, 0.2);
     scene.add(smallHeart);
 }
-
-// add text
-const texture = new THREE.Texture();
-texture.image = new Image();
-texture.image.src = 'https://photos.google.com/photo/AF1QipO_yW7LTluBValeu6nfSS-nlI6lLx0Fv0HubRbv';
-texture.needsUpdate = true;
-
-const textMaterial = new THREE.MeshBasicMaterial({ map: texture });
-const text = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), textMaterial);
-//text.rotation.x = Math.PI / 2;
-text.position.y = 2;
-scene.add(text);
 
 //5. set up renderer
 const renderer = new THREE.WebGLRenderer();
