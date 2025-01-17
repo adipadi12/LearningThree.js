@@ -3,11 +3,19 @@ import { useState } from "react";
 
 const NavItems = () => {
   return (
-    <div></div>
+    <ul className = "navul">
+      {["home", "about", "work", "contact"].map((item, index) => (
+        <li key={index} className = "navli">
+          <a href="/" className = "navli_a">
+            {item}
+          </a>
+        </li>
+      ))}
+    </ul>
   )
 }
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
