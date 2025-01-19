@@ -12,6 +12,7 @@ const NavItems = () => {
         </li>
       ))}
     </ul>
+    //wtf
   )
 }
 const Navbar = () => {
