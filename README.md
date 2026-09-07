@@ -1,2 +1,7 @@
 # LearningThree.js
-kinshuk needs help getting an internship
+
+node -v
+npm init -y
+npm install
+npm install three vite
+npm run dev

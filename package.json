@@ -4,6 +4,8 @@
   "description": "kinshuk needs help getting an internship",
   "main": "main.js",
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +21,7 @@
   },
   "homepage": "https://github.com/adipadi12/LearningThree.js#readme",
   "dependencies": {
-    "three": "^0.181.0"
+    "three": "^0.181.2",
+    "vite": "^8.2.2"
   }
 }
