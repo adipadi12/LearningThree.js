@@ -43,9 +43,21 @@ group.add(mesh);
 
 scene.add(camera);
 scene.add(axesHelper);
-
 renderer.render(scene, camera);
+
 
 console.log("Javascript is working");
 console.log(THREE);
-mesh.position.set(0.7, - 0.6, 1)
+mesh.position.set(0.7, -0.6, 1)
+
+const tick = () =>
+{
+    mesh.rotation.y += 0.01;
+
+    renderer.render(scene, camera);
+
+    console.log('tick');
+    window.requestAnimationFrame(tick)
+}
+
+tick();
