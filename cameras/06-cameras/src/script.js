@@ -70,7 +70,7 @@ const tick = () =>
     // camera.position.z = Math.cos(cursor.x * Math.PI * 2) * 2
     // camera.position.y = cursor.y * 3
     // camera.lookAt(mesh.position)
-    //
+    // ou shii
     // Update controls
     controls.update();
 
