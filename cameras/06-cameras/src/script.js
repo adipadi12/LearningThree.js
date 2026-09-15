@@ -72,6 +72,7 @@ const tick = () =>
     // camera.lookAt(mesh.position)
     // ou shii
     // Update controls
+    controls.target.y = 2;
     controls.update();
 
     // Call tick again on the next frame
