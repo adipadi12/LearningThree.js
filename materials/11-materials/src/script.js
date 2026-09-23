@@ -199,7 +199,7 @@ material.thickness = 0.5
 gui.add(material, 'transmission').min(0).max(1).step(0.0001)
 gui.add(material, 'ior').min(1).max(10).step(0.0001)
 gui.add(material, 'thickness').min(0).max(1).step(0.0001)
-
+// jonkler
 // SHAPES
 const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.5, 128, 128), material)
 sphere.position.x = -1.5
