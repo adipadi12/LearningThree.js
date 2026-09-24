@@ -47,7 +47,7 @@ colorTexture.center.x = 0.5
 colorTexture.center.y = 0.5
 colorTexture.generateMipmaps = false
 colorTexture.minFilter = THREE.NearestFilter
-colorTexture.magFilter = THREE.NearestFilter
+colorTexture.magFilter = THREE.NearestFilter // mag filter is what?
 
 const texture = textureLoader.load(
     imageSource,
