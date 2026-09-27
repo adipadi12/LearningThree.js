@@ -26,7 +26,7 @@ const matcapTexture = textureLoader.load('/textures/matcaps/1.png')
 matcapTexture.colorSpace = THREE.SRGBColorSpace
 
 /**
- * Object
+ Object
  */
 const cube = new THREE.Mesh(
     new THREE.BoxGeometry(1, 1, 1),
