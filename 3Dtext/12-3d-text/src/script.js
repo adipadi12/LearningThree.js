@@ -74,7 +74,7 @@ fontLoader.load(
 
 const donutGeometry = new THREE.TorusGeometry(0.3, 0.2, 20, 45)
 const donutMaterial = new THREE.MeshMatcapMaterial({ matcap: matcapTexture })
-
+// loop
 for(let i = 0; i < 100; i++)
 {
     const donut = new THREE.Mesh(donutGeometry, donutMaterial)
