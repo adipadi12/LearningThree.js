@@ -43,7 +43,7 @@ fontLoader.load(
     (font) =>
     {
         const textGeometry = new TextGeometry(
-            'Hello Three.js',
+            "Hello I'm AdiPadi",
             {
                 font: font,
                 size: 0.5,
