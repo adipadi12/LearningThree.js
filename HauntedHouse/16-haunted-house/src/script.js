@@ -209,7 +209,7 @@ sky.material.uniforms['mieDirectionalG'].value = 0.95
 sky.material.uniforms['sunPosition'].value.set(0.3, -0.038, -0.95)
 sky.scale.set(100, 100, 100)
 
-scene.add(sky)
+scene.add(sky)// haunted house lowkey fire
 
 /**
  * Fog
