@@ -86,7 +86,7 @@ const sphere = new THREE.Mesh(
     material
 )
 sphere.position.x = - 1.5
-
+//test
 const cube = new THREE.Mesh(
     new THREE.BoxGeometry(0.75, 0.75, 0.75),
     material
