@@ -41,6 +41,7 @@ floorBody.quaternion.setFromAxisAngle(new CANNON.Vec3(-1, 0, 0), Math.PI * 0.5)
 world.addBody(floorBody)
 
 sphereBody.applyLocalForce(new CANNON.Vec3(150, 0, 0), new CANNON.Vec3(0, 0, 0))
+// local force kinda forced dawg
 
 const defaultPlasticContactMaterial = new CANNON.ContactMaterial(
     defaultMaterial, // contains both for properties for when they collide
