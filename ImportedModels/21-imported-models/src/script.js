@@ -116,6 +116,7 @@ gltfLoader.load(
         // }
     },
     (progress) =>
+    // ah hell naw
     {
         console.log('progress')
         console.log(progress)
