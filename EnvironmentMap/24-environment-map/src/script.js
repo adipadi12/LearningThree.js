@@ -3,12 +3,13 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import GUI from 'lil-gui'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js'
-
+import { EXRLoader } from 'three/examples/jsm/Addons.js'
+import { GroundedSkybox } from 'three/examples/jsm/Addons.js'
 // loaders
 const gltfLoader = new GLTFLoader()
 const cubeTextureLoader = new THREE.CubeTextureLoader()
 const rgbeLoader = new RGBELoader()
-
+const exrLoader = new EXRLoader()
 // environment map
 // const environmentMap = cubeTextureLoader.load([
 //     '/environmentMaps/0/px.png',
@@ -30,14 +31,24 @@ gltfLoader.load(
 )
 
 // HDR 
-rgbeLoader.load('/environmentMaps/0/2k.hdr', (environmentMap) =>
-{
-    environmentMap.mapping = THREE.EquirectangularReflectionMapping
+// rgbeLoader.load('/environmentMaps/blender-2k.exr', (environmentMap) =>
+// {
+//     environmentMap.mapping = THREE.EquirectangularReflectionMapping
 
-    scene.background = environmentMap
-    scene.environment = environmentMap
-})
+//     scene.background = environmentMap
+//     scene.environment = environmentMap
+// })
+// exrLoader.load('/environmentMaps/nvidiaCanvas-4k.exr', (environmentMap) =>
+// {
+//     environmentMap.mapping = THREE.EquirectangularReflectionMapping
+//     // const skybox = new GroundedSkybox(environmentMap, 15, 70)
+//     scene.background = environmentMap
+//     scene.environment = environmentMap
+// //    scene.add(skybox)
+//     //skybox.material.wireframe = true
+//   //      skybox.position.y = 15
 
+// })
 /**
  * Base
  */
@@ -75,6 +86,14 @@ const torusKnot = new THREE.Mesh(
 torusKnot.position.x = -4
 torusKnot.position.y = 4
 scene.add(torusKnot)
+
+const holyDonut = new THREE.Mesh(
+    new THREE.TorusGeometry(8, 0.5),
+    new THREE.MeshBasicMaterial({ color: new THREE.Color(10, 4, 2) })
+)
+holyDonut.position.y = 3.5
+scene.add(holyDonut)
+
 
 /**
  * Sizes
@@ -120,7 +139,14 @@ const renderer = new THREE.WebGLRenderer({
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-
+const cubeRenderTarget = new THREE.WebGLCubeRenderTarget(
+    256,
+    {
+        type: THREE.FloatType
+    }
+)
+scene.environment = cubeRenderTarget.texture
+const cubeCamera = new THREE.CubeCamera(0.1, 100, cubeRenderTarget)
 /**
  * Animate
  */
@@ -130,6 +156,13 @@ const tick = () =>
     // Time
     const elapsedTime = clock.getElapsedTime()
 
+    // Real time environment map
+    if(holyDonut)
+    {
+        holyDonut.rotation.x = Math.sin(elapsedTime) * 2
+
+        cubeCamera.update(renderer, scene)
+    }
     // Update controls
     controls.update()
 
