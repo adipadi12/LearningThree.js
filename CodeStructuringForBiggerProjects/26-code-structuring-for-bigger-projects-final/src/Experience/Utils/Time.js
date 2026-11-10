@@ -1,4 +1,4 @@
-import EventEmitter from './EventEmitter'
+import EventEmitter from './EventEmitter.js'
 
 export default class Time extends EventEmitter
 {
@@ -6,10 +6,11 @@ export default class Time extends EventEmitter
     {
         super()
 
+        // Setup
         this.start = Date.now()
         this.current = this.start
         this.elapsed = 0
-        this.delta = 16 // milliseconds between 2 frames at 60 fps
+        this.delta = 16
 
         window.requestAnimationFrame(() =>
         {
@@ -23,8 +24,9 @@ export default class Time extends EventEmitter
         this.delta = currentTime - this.current
         this.current = currentTime
         this.elapsed = this.current - this.start
-        console.log('tick')
+
         this.trigger('tick')
+
         window.requestAnimationFrame(() =>
         {
             this.tick()
