@@ -70,6 +70,7 @@ scene.backgroundIntensity = 1
 // scene.backgroundRotation.x = 1
 // scene.environmentRotation.x = 2
 // myhealth is so cooked gng
+// kal se regular pakka
 gui.add(scene, 'environmentIntensity').min(0).max(10).step(0.001).name('envMapIntensity')
 gui.add(scene, 'backgroundBlurriness').min(0).max(1).step(0.001).name('bgBlurriness')
 gui.add(scene, 'backgroundIntensity').min(0).max(10).step(0.001).name('bgIntensity')
